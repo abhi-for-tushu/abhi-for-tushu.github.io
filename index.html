@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine ❤️</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+  // ===== PASSWORD PROTECTION =====
+  var password = prompt("Enter the secret password 💖");
+
+  if (password === "Tushu") {
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.style.display = "block";
+    });
+  } else {
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.innerHTML = `
+        <div style="margin-top:120px; text-align:center;">
+          <h1 style="color:#d63384;">Access Denied 💔</h1>
+          <p>Wrong password</p>
+        </div>
+      `;
+      document.body.style.display = "block";
+    });
+  }
+  </script>
+
+</head>
+<body style="display:none;">
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<!-- ================= PAGE 1 ================= -->
+
+<div class="page active" id="page1">
+  <h1>Happy Valentine’s Day My Princess 💖</h1>
+  <p>You make my world beautiful 🌍✨</p>
+  <button onclick="startWebsite()">Start 💌</button>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+
+<div class="page" id="page2">
+  <h2>Quiz for You 😘</h2>
+
+  <input type="text" id="TUSHITA" placeholder="ABHIJEET 💕">
+
+  <select id="love">
+    <option value="">Do you love me?</option>
+    <option value="Yes">Yes ❤️</option>
+    <option value="Obviously">Obviously 😍</option>
+    <option value="Forever">Forever 💞</option>
+  </select>
+
+  <button onclick="submitQuiz()">Submit 💘</button>
+</div>
+
+<!-- ================= PAGE 3 ================= -->
+
+<div class="page" id="page3">
+  <h2>A Letter For You 💌</h2>
+
+  <div class="letter">
+    <p>
+      My love ❤️,<br><br>
+      From the moment you walked into my life, everything started making sense ✨<br>
+      Your smile 😊 is my favorite sight, your voice 🎶 is my comfort, and your presence 💕 is my peace.<br><br>
+      You are my sunshine ☀️ on cloudy days, my calm 🌸 in chaos, and my forever ♾️ in this lifetime.<br>
+      With you, even the simplest moments feel magical ✨<br><br>
+      I promise to stand by you 🤝, love you deeply 💖, and choose you every single day — today, tomorrow, and always 💍<br><br>
+      I love you more than words can ever say 🥰❤️
+    </p>
+  </div>
+
+  <button onclick="nextPage(4)">Next 💖</button>
+</div>
+
+<!-- ================= PAGE 4 ================= -->
+
+<div class="page" id="page4">
+  <h2>Look at this cutie 😭💗</h2>
+
+  <div class="photo-grid">
+    <div class="polaroid"><img src="p1.jpg"><p>Sweet Hello</p></div>
+    <div class="polaroid"><img src="p2.jpg"><p>True Smile</p></div>
+    <div class="polaroid"><img src="p3.jpg"><p>Perfect Day</p></div>
+    <div class="polaroid"><img src="p4.jpg"><p>Only Us</p></div>
+    <div class="polaroid"><img src="p5.jpg"><p>My Home</p></div>
+    <div class="polaroid"><img src="p6.jpg"><p>Forever Us</p></div>
+  </div>
+
+  <p class="final-text">I Love You Infinity ♾️❤️</p>
+  <button onclick="nextPage(5)">Final Surprise ❤️</button>
+</div>
+
+<!-- ================= PAGE 5 ================= -->
+
+<div class="page" id="page5">
+  <div class="video-container">
+    <h2>You are my forever 🧿❤️!</h2>
+
+    <video controls width="320">
+      <source src="love.mp4" type="video/mp4">
+    </video>
+
+    <p class="video-text">
+      I love you more than words can say ❤️<br>
+      No matter where life takes us, my heart will always choose you.<br>
+      Thank you for being my peace, my smile, my love.<br>
+      This Valentine’s Day and every day after,<br>
+      I’m grateful to call you mine 💕
+    </p>
+  </div>
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+function startWebsite() {
+  document.getElementById("bgMusic").play().catch(()=>{});
+  nextPage(2);
+}
+
+function nextPage(pageNumber) {
+  var pages = document.querySelectorAll(".page");
+  pages.forEach(function(page) {
+    page.classList.remove("active");
+  });
+  document.getElementById("page" + pageNumber).classList.add("active");
+}
+
+function submitQuiz() {
+  var name = document.getElementById("TUSHITA").value.trim();
+  var love = document.getElementById("love").value;
+
+  if (name === "" || love === "") {
+    alert("Please complete the quiz 😘");
+    return;
+  }
+
+  // ===== CONDITIONAL LOGIC =====
+  if (love === "Forever") {
+    alert("I love you too " + name + " 💕");
+    nextPage(3);
+  }
+  else if (love === "Yes") {
+    alert("Okay!!! but This is not working, Please Try again");
+  }
+  else if (love === "Obviously") {
+    alert("Okay!!! but still This is not working, Please try again");
+  }
+}
+</script>
+
+</body>
+</html>
